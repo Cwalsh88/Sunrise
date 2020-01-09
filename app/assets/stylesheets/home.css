@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: orange;
+  border: 1px solid black;
+  height: 720px;
+}
+
+.row {
+  height: 30%;
+  border: 1px solid black;
+  background-color: purple;
+}
+
+.projects {
+  width: 100%;
+  background-color: red;
+}
+
+.teams {
+  width: 75%;
+}
+
+.leadership {
+  width: 50%;
+}
+
+.hc {
+  width: 25%;
+} 
