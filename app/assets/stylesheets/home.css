@@ -9,17 +9,19 @@
 }
 
 .row {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
   height: 30%;
   border: 1px solid black;
-  background-color: purple;
+  background-color: red;
 }
 
-.projects {
+.project {
   width: 100%;
-  background-color: red; 
 }
 
-.teams {
+.team {
   width: 75%;
 }
 
@@ -28,5 +30,14 @@
 }
 
 .hc {
-  width: 25%;
-} 
+  width: 30%;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+  border: 1px solid white;
+}
