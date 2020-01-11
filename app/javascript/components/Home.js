@@ -2,78 +2,74 @@ import React from "react";
 import { connect } from 'react-redux';
 import '../../assets/stylesheets/home'
 
+
+const hiddenStyle = {
+  display: 'none'
+}
+
+function Item(props) {
+  return (
+    <div className="item" style={props.isVisible ? {} : hiddenStyle}>
+      {props.text}
+    </div>
+  );
+}
+
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showTitle: true
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  renderItem(name) {
+    return (
+      <Item text={name} isVisible={!this.state.showTitle} />
+    );
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      showTitle: !state.showTitle
+    }));
+    
+    // showTitle to an array
+  }
+
   render () {    
     return (
       <React.Fragment>
         <div className="container">
-          <div className="row project">
-            <div className="item">
-              Earth Day Strike
-            </div>
-            <div className="item">
-              South Side Hub
-            </div>
-            <div className="item">
-              Endorsements
-            </div>
-            <div className="item">
-              National Legislation
-            </div>
-            <div className="item">
-              College Outreach
-            </div>
-            <div className="item">
-              Fellowship
-            </div>
+          <div className="row project" onClick={this.handleClick}>
+            {this.renderItem('Earth Day Strike')}
+            {this.renderItem('South Side Hub')}
+            {this.renderItem('Endorsements')}
+            {this.renderItem('National Legislation')}
+            {this.renderItem('College Outreach')}
+            {this.renderItem('Fellowship')}
           </div>
           <div className="row team">
-            <div className="item">
-              Actionss
-            </div>
-            <div className="item">
-              Art
-            </div>
-            <div className="item">
-              Comms
-            </div>
-            <div className="item">
-              Fundraising
-            </div>
-            <div className="item">
-              Onboarding
-            </div>
-            <div className="item">
-              Presentation
-            </div>
-            <div className="item">
-              Strategic Partnership
-            </div>
-            <div className="item">
-              Tech
-            </div>
+            {this.renderItem('Actions')}
+            {this.renderItem('Art')}
+            {this.renderItem('Comms')}
+            {this.renderItem('Fundraising')}
+            {this.renderItem('Onboarding')}
+            {this.renderItem('Presentation')}
+            {this.renderItem('Strategic Partnership')}
+            {this.renderItem('Tech')}
           </div>
           <div className="row leadership">
-            <div className="item">
-              Emailer
-            </div>
-            <div className="item">
-              Press Handler
-            </div>
-            <div className="item">
-              Tabler
-            </div>
-            <div className="item">
-              Logistor
-            </div>
-            <div className="item">
-              Interpersonal
-            </div>
+            {this.renderItem('Emailer')}
+            {this.renderItem('Press Handler')}
+            {this.renderItem('Tabler')}
+            {this.renderItem('Logistor')}
+            {this.renderItem('Interpersonal')}
           </div>
           <div className="row hc">
-            <div className="item">
-              Hub Coordinator
-            </div>
+            {this.renderItem('Hub Coordinator')}  
           </div>
         </div>  
       </React.Fragment>
